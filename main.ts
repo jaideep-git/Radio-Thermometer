@@ -40,13 +40,13 @@ basic.forever(function () {
         }
         if (input.temperature() < 15) {
             basic.showArrow(ArrowNames.South)
-            basic.pause(10000)
+            basic.pause(500)
             basic.clearScreen()
             basic.showNumber(input.temperature())
             temperatureUnit.scrollImage(1, 200)
         } else {
             basic.showArrow(ArrowNames.North)
-            basic.pause(10000)
+            basic.pause(500)
             basic.clearScreen()
             basic.showNumber(input.temperature())
             temperatureUnit.scrollImage(1, 200)
