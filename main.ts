@@ -8,6 +8,9 @@ input.onButtonPressed(Button.A, function () {
     temperatureUnit.scrollImage(1, 200)
     displayArrow = true
 })
+radio.onReceivedString(function (receivedString) {
+    music.playTone(880, music.beat(BeatFraction.Double))
+})
 input.onButtonPressed(Button.B, function () {
     displayArrow = false
     basic.clearScreen()
@@ -33,6 +36,10 @@ temperatureUnit = images.createBigImage(`
     `)
 basic.forever(function () {
     radio.sendNumber(input.temperature())
+    if (input.acceleration(Dimension.Y) > 10) {
+        music.playTone(880, music.beat(BeatFraction.Double))
+        radio.sendString("\"Alert\"")
+    }
     if (displayArrow == true) {
         currentTemp = input.temperature()
         if (currentTemp < minTemp) {
